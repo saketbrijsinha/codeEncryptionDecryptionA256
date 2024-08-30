@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+
 import { a256 } from "./commonValue";
+
+import "./App.css";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -68,7 +70,7 @@ const App = () => {
         <h2 className="text-center mb-4">Decryption</h2>
         <div className="form-group mb-3">
           <label htmlFor="inputField" className="form-label">
-            Enter encrypted string:
+            Enter encrypted string (without quotes):
           </label>
           <input
             type="text"
