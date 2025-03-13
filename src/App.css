@@ -6,12 +6,12 @@ body {
   align-items: center;
   background: linear-gradient(135deg, #74ebd5, #acb6e5);
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Styling the card with a beautiful border and shadow */
 .card {
-  width:90vw;
+  width: 90vw;
   background: #fff;
   border: none;
   border-radius: 15px;
@@ -80,4 +80,26 @@ h2 {
 /* Smooth transition for elements */
 * {
   transition: all 0.3s ease-in-out;
+}
+
+.download-button {
+  position: fixed;
+  bottom: 80px;
+  right: 80px;
+  width: 80px;
+  height: 80px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #218838;
 }

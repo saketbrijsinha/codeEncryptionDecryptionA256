@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { a256 } from "./commonValue";
-
 import "./App.css";
+import { FaDownload } from "react-icons/fa";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -115,11 +114,9 @@ const App = () => {
                 {JSON.stringify(outputJson, null, 2)}
               </pre>
             </div>
-            <div className="text-center mt-3">
-              <button className="btn btn-success" onClick={handleDownloadJson}>
-                Download JSON
-              </button>
-            </div>
+            <button className="download-button" onClick={handleDownloadJson}>
+              <FaDownload size={40} />
+            </button>
           </>
         ) : outputValue ? (
           <div className="output-box mt-4 text-center">
