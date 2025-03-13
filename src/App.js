@@ -52,7 +52,7 @@ const App = () => {
       : "Please input a value";
     try {
       const parsedJson = JSON.parse(output);
-      if(typeof parsedJson === 'object'){
+      if (typeof parsedJson === "object") {
         setOutputJson(parsedJson);
         setOutputValue("");
       } else {
@@ -64,6 +64,20 @@ const App = () => {
       setOutputValue(output + "");
     }
   };
+
+  const handleDownloadJson = () => {
+    if (!outputJson) return;
+    const blob = new Blob([JSON.stringify(outputJson, null, 2)], {
+      type: "application/json",
+    });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "decrypted_data.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="container mt-5">
       <div className="card shadow-lg p-4 rounded">
@@ -93,22 +107,23 @@ const App = () => {
           <>
             <div className="output-box mt-4">
               <h4 className="output-label">Output JSON:</h4>
-              <pre className="output-value">
-              {renderJson(outputJson)} {/* Render JSON with toggles */}
-              </pre>{" "}
-              {/* Displaying object */}
+              <pre className="output-value">{renderJson(outputJson)}</pre>
             </div>
             <div className="output-box mt-4">
               <h4 className="output-label">Output Stringified JSON:</h4>
               <pre className="output-value">
                 {JSON.stringify(outputJson, null, 2)}
-              </pre>{" "}
-              {/* Displaying object */}
+              </pre>
+            </div>
+            <div className="text-center mt-3">
+              <button className="btn btn-success" onClick={handleDownloadJson}>
+                Download JSON
+              </button>
             </div>
           </>
         ) : outputValue ? (
           <div className="output-box mt-4 text-center">
-            <h4 className="output-label">Decrpted value:</h4>
+            <h4 className="output-label">Decrypted value:</h4>
             <p className="output-value">{outputValue}</p>
           </div>
         ) : (
